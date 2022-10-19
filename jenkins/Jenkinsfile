@@ -68,7 +68,7 @@ pipeline {
                     sh "git tag ${pomVersion}"
                     String gitRepo = "${env.GIT_URL}".substring(8)
                     withCredentials([usernamePassword(credentialsId: 'git-credentials', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
-                        sh "git -c http.sslVerify=false push https://${GIT_USERNAME}:${GIT_PASSWORD}@${gitRepo} HEAD:CICD-001 ${pomVersion}"
+                        sh "git -c http.sslVerify=false push https://${GIT_USERNAME}:${GIT_PASSWORD}@${gitRepo} HEAD:develop ${pomVersion}"
                     }
                 }
             }
